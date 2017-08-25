@@ -9,13 +9,16 @@ import play.api.libs.ws.ahc.AhcWSComponents
 import com.example.hello.api.HellolagomService
 import com.lightbend.lagom.scaladsl.broker.kafka.LagomKafkaComponents
 import com.softwaremill.macwire._
+// #HellolagomLoader-import
+import com.typesafe.conductr.bundlelib.lagom.scaladsl.ConductRApplicationComponents
+// #HellolagomLoader-import
 
 class HellolagomLoader extends LagomApplicationLoader {
 
+  // #HellolagomLoader-load
   override def load(context: LagomApplicationContext): LagomApplication =
-    new HellolagomApplication(context) {
-      override def serviceLocator: ServiceLocator = NoServiceLocator
-    }
+    new HellolagomApplication(context) with ConductRApplicationComponents
+  // #HellolagomLoader-load
 
   override def loadDevMode(context: LagomApplicationContext): LagomApplication =
     new HellolagomApplication(context) with LagomDevModeComponents

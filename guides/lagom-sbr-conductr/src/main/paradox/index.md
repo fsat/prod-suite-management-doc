@@ -43,6 +43,14 @@ At this stage, we have a service that is ready to be deployed. Simply add [Condu
 
 @@snip [plugins.sbt](../../../lagom-scala-sbt/project/plugins.sbt) { #hello-lagom-plugins }
 
+...and modify `HellolagomLoader.scala`'s import to import some wiring for ConductR:
+
+@@snip [HellolagomLoader.scala](../../../lagom-scala-sbt/hello-lagom-impl/src/main/scala/com/example/hello/impl/HellolagomLoader.scala) { #HellolagomLoader-import }
+
+...and then apply the wiring of ConductR components:
+
+@@snip [HellolagomLoader.scala](../../../lagom-scala-sbt/hello-lagom-impl/src/main/scala/com/example/hello/impl/HellolagomLoader.scala) { #HellolagomLoader-load }
+
 From the `sbt` project (press RETURN if you're still running the `runAll` command from having built "Lagom with Scala"), reload your project in order to realize its new settings:
 
 ```
