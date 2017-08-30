@@ -15,7 +15,7 @@
         supports logback 1.1.7
         -->
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${application.home:-.}/logs/application-%d{yyyy-MM-dd}.%i.log.gz</fileNamePattern>
+            <fileNamePattern>${application.home:-.}/logs/application-%d{yyyy-MM-dd}.log.gz</fileNamePattern>
             <maxHistory>30</maxHistory>
             <totalSizeCap>300MB</totalSizeCap>
         </rollingPolicy>
